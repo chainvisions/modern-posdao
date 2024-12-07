@@ -1,0 +1,3 @@
+@solidstate/contracts/=dependencies/@solidstate-contracts-0.0.60/
+forge-std-1.9.4/=dependencies/forge-std-1.9.4/
+@solady/contracts/=dependencies/solady-0.0.278/src/
