@@ -1,66 +1,17 @@
-## Foundry
+# Modern POSDAO
+A modernized version for [POSDAO](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3368483) consensus with better security, new optimizations, the latest Solidity version, and the support for a wide variety of new consensus mechanisms such as [HBBFT](https://eprint.iacr.org/2016/199.pdf).
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Project Overview
+### Goals
+- [ ] Port POSDAO AuRa consensus to a more modern version of Solidity and implement new optimizations.
+- [ ] Restructure bridge related code to utilize ERC20 instead of ERC677 due to previous security issues.
+- [ ] Implement support for additional consensus algorithms such as HoneyBadger BFT.
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### File Structure
+The smart contract codebase is split amongst the following folders:
+- ``src`` - Codebase for the POSDAO smart contracts
+  - ``src/AuRa`` - Smart contract code related to the implementation of Authority Round in POSDAO.
+  - ``src/hbbft`` - Smart contract code related to the implementation of HoneyBadger BFT in POSDAO.
+  - ``src/shared`` - Shared codebase between the consensus implementations.
+- ``test`` - POSDAO smart contract tests
+- ``scripts`` Deployment and other utility scripts for the POSDAO contracts
